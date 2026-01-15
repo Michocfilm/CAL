@@ -1,0 +1,15 @@
+import numpy as np
+import matplotlib.pyplot as plt
+t = np.linspace(-1, 3, 500)
+P_exact = 1 / (1 + t)
+P_teacher = (-t/4 + (t-1)**2/8 - (t-1)**3/16 + (t-1)**4/32 + 3/4)
+plt.plot(t, P_exact, '--', label='1/(1+t)')
+plt.plot(t, P_teacher, label='Taylor Series Expansion\n-t/4 + (t-1)**2/8 - (t-1)**3/16 + (t-1)**4/32 + 3/4')
+plt.axvline(1, linestyle='--', color='red', label='Expansion Center (t=1)')
+plt.xlim(-1, 3)
+plt.ylim(0, 100)
+plt.xlabel('t')
+plt.ylabel('P(t)')
+plt.legend()
+plt.grid()
+plt.show()
